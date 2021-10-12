@@ -1,3 +1,15 @@
 h1 タスク一覧
 
 = link_to('新規登録', new_task_path, class: 'btn btn-primary')
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Task.human_attribute_name(:name)
+      th= Task.human_attribute_name(:created_at)
+  tbody
+    - @tasks.each do |task|
+      tr
+        td= task.name
+        td= task.created_at
