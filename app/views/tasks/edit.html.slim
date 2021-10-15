@@ -1,2 +1,6 @@
-h1 Tasks#edit
-p Find me in app/views/tasks/edit.html.slim
+h1 タスクの編集
+
+.nav.justify-content-end
+  = link_to '一覧', tasks_path, class: 'nav-link'
+
+= render partial: 'form', locals: { task: @task }
