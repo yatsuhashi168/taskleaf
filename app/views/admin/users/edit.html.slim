@@ -1,2 +1,6 @@
-h1 Admin::Users#edit
-p Find me in app/views/admin/users/edit.html.slim
+h1 ユーザの編集
+
+.nav.justify-content-end
+  = link_to '一覧', admin_users_path, class: 'nav-link'
+
+= render partial: 'form', locals: { user: @user }
