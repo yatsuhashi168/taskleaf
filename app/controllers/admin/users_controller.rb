@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 class Admin::UsersController < ApplicationController
+  before_action :require_admin
+
   def index
     @users = User.all
   end
@@ -34,13 +38,12 @@ class Admin::UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
     redirect_to admin_users_url, notice: "ユーザ「#{@user.name}」を削除しました。"
   end
-  
 
   private
 
@@ -51,5 +54,4 @@ class Admin::UsersController < ApplicationController
   def require_admin
     redirect_to root_url unless current_user.admin?
   end
-
 end
