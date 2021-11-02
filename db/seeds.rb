@@ -10,4 +10,4 @@
 
 User.create!(name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
 
-Rails.logger.debug 'succeed'
+puts 'succeed'
