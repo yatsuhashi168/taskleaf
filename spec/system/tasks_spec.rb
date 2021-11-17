@@ -74,4 +74,19 @@ describe 'タスク管理機能', type: :system do
       end
     end
   end
+
+  describe '削除機能' do
+    context '一覧画面で削除ボタンを押したとき' do
+      it 'タスクが正常に削除される' do
+        expect(page).to have_selector '.alert-success', text: '削除しました。'
+      end
+    end
+
+    context '詳細画面で削除ボタンを押したとき' do
+      it 'タスクが正常に削除される' do
+        #
+      end
+    end
+  end
+
 end
