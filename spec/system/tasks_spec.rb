@@ -76,6 +76,15 @@ describe 'タスク管理機能', type: :system do
   end
 
   describe '削除機能' do
+    let(:login_user) { user_a }
+    let(:task_name) { '削除用のテストを書く' }
+
+    before do
+      visit new_task_path
+      fill_in '名称', with: task_name
+      click_button '登録する'
+    end
+
     context '一覧画面で削除ボタンを押したとき' do
       it 'タスクが正常に削除される' do
         expect(page).to have_selector '.alert-success', text: '削除しました。'
@@ -84,7 +93,16 @@ describe 'タスク管理機能', type: :system do
 
     context '詳細画面で削除ボタンを押したとき' do
       it 'タスクが正常に削除される' do
-        #
+        # 詳細ページに遷移する
+        visit task_path(task_a)
+        # 削除ボタンを押す
+        click_button '削除'
+        # ダイアログのOKを押す
+        page.accept_confirm do
+          click_on 'OK'
+        end
+        # 「タスク「test」を削除しました。」というメッセージがあることを確認する
+        expect(page).to have_selector '.alert-success', text: '削除用のテストを書く'
       end
     end
   end
