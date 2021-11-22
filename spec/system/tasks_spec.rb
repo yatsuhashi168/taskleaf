@@ -93,6 +93,24 @@ describe 'タスク管理機能', type: :system do
     end
   end
 
+  describe '削除機能' do
+    let(:login_user) { user_a }
+    let(:task_delete) { FactoryBot.create(:task, name: '削除用タスク', user: user_a) }
+
+    context '詳細画面で削除ボタンを押したとき' do
+      it 'タスクが正常に削除される' do
+        # 詳細ページに遷移する
+        visit task_path(task_delete)
+        # 削除ボタンを押す
+        click_on '削除'
+        # ダイアログのOKを押す
+        page.accept_confirm
+        # 「タスク「削除用タスク」を削除しました。」というメッセージがあることを確認する
+        expect(page).to have_selector '.alert-success', text: '削除用タスク'
+      end
+    end
+  end
+
   # 難しいため、一旦保留
   # describe '削除機能' do
   #   let(:login_user) { user_a }
