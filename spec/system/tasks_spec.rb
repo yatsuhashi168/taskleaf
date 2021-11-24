@@ -74,4 +74,78 @@ describe 'タスク管理機能', type: :system do
       end
     end
   end
+
+  describe 'タスク編集機能' do
+    let(:login_user) { user_a }
+    let(:task_name) { '編集済タスク' }
+
+    before do
+      visit task_path(task_a)
+      click_on '編集'
+      fill_in '名称', with: task_name
+      click_button '更新する'
+    end
+
+    context '名称を編集したとき' do
+      it '正常に登録される' do
+        expect(page).to have_selector '.alert-success', text: '更新しました'
+      end
+    end
+  end
+
+  describe '削除機能' do
+    let(:login_user) { user_a }
+    let(:task_delete) { FactoryBot.create(:task, name: '削除用タスク', user: user_a) }
+
+    before do
+      # 詳細ページに遷移する
+      visit task_path(task_delete)
+      # 削除ボタンを押す
+      # ダイアログのOKを押す
+      page.accept_confirm do
+        click_on '削除'
+      end
+    end
+
+    context '詳細画面から削除したとき' do
+      it 'タスクが正常に削除される' do
+        # 「タスク「削除用タスク」を削除しました。」というメッセージがあることを確認する
+        expect(page).to have_selector '.alert-success', text: '削除用タスク'
+      end
+    end
+  end
+
+  # 難しいため、一旦保留
+  # describe '削除機能' do
+  #   let(:login_user) { user_a }
+  #   let(:task_name) { '削除用のテストを書く' }
+  #
+  #   before do
+  #     visit new_task_path
+  #     fill_in '名称', with: task_name
+  #     click_button '登録する'
+  #   end
+  #
+  #   context '一覧画面で削除ボタンを押したとき' do
+  #     it 'タスクが正常に削除される' do
+  #       expect(page).to have_selector '.alert-success', text: '削除しました。'
+  #     end
+  #   end
+  #
+  #   context '詳細画面で削除ボタンを押したとき' do
+  #     it 'タスクが正常に削除される' do
+  #       # 詳細ページに遷移する
+  #       visit task_path(task_a)
+  #       # 削除ボタンを押す
+  #       click_button '削除'
+  #       # ダイアログのOKを押す
+  #       page.accept_confirm do
+  #         click_on 'OK'
+  #       end
+  #       # 「タスク「test」を削除しました。」というメッセージがあることを確認する
+  #       expect(page).to have_selector '.alert-success', text: '削除用のテストを書く'
+  #     end
+  #   end
+  # end
+
 end
