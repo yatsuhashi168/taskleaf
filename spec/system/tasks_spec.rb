@@ -103,4 +103,23 @@ describe 'タスク管理機能', type: :system do
       end
     end
   end
+
+  describe '更新機能' do
+    let(:login_user) { user_a }
+    let(:task_name) { '削除機能のテスト' }
+    before do
+      visit new_task_path
+      fill_in '名称', with: task_name
+      click_button '登録する'
+      visit tasks_path
+      click_link '削除機能のテスト'
+    end
+
+    it 'タスクの更新ができる' do
+      click_on '編集'
+      fill_in '詳しい説明', with: 'updated!'
+      click_button '更新する'
+      expect(page).to have_selector '.alert-success', text: '削除機能のテスト'
+    end
+  end
 end
