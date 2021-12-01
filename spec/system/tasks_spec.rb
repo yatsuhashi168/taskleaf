@@ -78,6 +78,7 @@ describe 'タスク管理機能', type: :system do
   describe '削除機能' do
     let(:login_user) { user_a }
     let(:task_name) { '削除機能のテスト' }
+
     before do
       visit new_task_path
       fill_in '名称', with: task_name
@@ -85,6 +86,7 @@ describe 'タスク管理機能', type: :system do
       visit tasks_path
       click_link '削除機能のテスト'
     end
+
     context '一覧画面で削除ボタンを押したとき' do
       it 'タスクが正常に削除される' do
         accept_alert do
@@ -107,6 +109,7 @@ describe 'タスク管理機能', type: :system do
   describe '更新機能' do
     let(:login_user) { user_a }
     let(:task_name) { '削除機能のテスト' }
+
     before do
       visit new_task_path
       fill_in '名称', with: task_name
