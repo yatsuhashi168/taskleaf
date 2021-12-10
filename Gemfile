@@ -69,6 +69,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bootstrap'
+gem 'dotenv-rails'
 gem 'html2slim'
 gem 'rails_autolink'
 gem 'slim-rails'
