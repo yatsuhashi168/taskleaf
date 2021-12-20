@@ -18,7 +18,7 @@ h1 タスク一覧
 table.table.table-hover
   thead.thead-default
     tr
-      th= Task.human_attribute_name(:name)
+      th= sort_link(@q, :name, [:name, "created_at desc"])
       th= Task.human_attribute_name(:created_at)
       th
   tbody
