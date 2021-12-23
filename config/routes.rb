@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :tasks do
     post 'confirm', action: :confirm_new, on: :new
   end
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
