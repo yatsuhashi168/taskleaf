@@ -55,7 +55,6 @@ group :development do
   # rubocop-fjordを追加
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
-  # letter_openerのバージョン下げないと今のRubyバージョンではつかえなそうなので一旦保留
   gem 'letter_opener_web'
 end
 
