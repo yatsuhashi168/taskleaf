@@ -31,3 +31,7 @@ table.table.table-hover
           = link_to '削除', task, method: :delete, data: { confirm: "タスク「#{task.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
 
 = link_to 'エクスポート', tasks_path(format: :csv), class: 'btn btn-primary me-3'
+
+= form_tag import_tasks_path, multipart: true, class: 'me-3' do
+  = file_field_tag :file
+  = submit_tag "インポート", class: 'btn btn-primary'
