@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TaskMailer < ApplicationMailer
   def creation_email(task)
     @task = task

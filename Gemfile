@@ -53,9 +53,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # rubocop-fjordを追加
+  gem 'letter_opener_web'
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
-  gem 'letter_opener_web'
 end
 
 group :test do
@@ -72,6 +72,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootstrap'
 gem 'dotenv-rails'
 gem 'html2slim'
+gem 'kaminari'
 gem 'rails_autolink'
 gem 'ransack'
 gem 'slim-rails'
