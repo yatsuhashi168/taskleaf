@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
   def index
     @q = current_user.tasks.ransack(params[:q])
-    @tasks = @q.result(distinct: true).order(:id).page(params[:page]).per(5)
+    @tasks = @q.result(distinct: true).order(:id).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html
@@ -28,6 +28,7 @@ class TasksController < ApplicationController
 
     if @task.save
       TaskMailer.creation_email(@task).deliver_now
+      SampleJob.set(wait: 1.week).perform_later
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
       render :new
