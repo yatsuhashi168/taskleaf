@@ -1,0 +1,7 @@
+{
+  document.querySelector('#task-<%= @task.id %>').style.display = 'none';
+
+  const message = document.createElement('p');
+  message.innerText = 'タスク「<%= @task.name %>」を削除しました。残りのタスクは<%= current_user.tasks.count %>件です。';
+  document.querySelector('table').insertAdjacentElement('beforebegin', message);
+}
