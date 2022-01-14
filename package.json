@@ -4,6 +4,8 @@
   "dependencies": {
     "@rails/ujs": "^7.0.1",
     "@rails/webpacker": "5.4.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },
