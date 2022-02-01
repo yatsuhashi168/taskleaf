@@ -8,7 +8,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create!(name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
-50.times { |number| Task.create!(name: "餃子#{number+1}個作る", description: "#{number}個では足らない", user: user)}
+user = User.find_or_create_by!(email: 'admin@example.com') do |user|
+  user.name = 'admin'
+  user.admin = true
+  user.password = 'password'
+  user.password_confirmation = 'password'
+end
+50.times { |number| Task.find_or_create_by!(name: "餃子#{number+1}個作る", description: "#{number}個では足らない", user: user)}
 
 Rails.logger.debug 'succeed'
