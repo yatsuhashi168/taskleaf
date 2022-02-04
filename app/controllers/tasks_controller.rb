@@ -43,6 +43,9 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
+    if params[:show_page]
+      redirect_to tasks_url
+    end
   end
 
   def import
