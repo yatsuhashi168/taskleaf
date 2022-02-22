@@ -109,8 +109,7 @@ describe 'タスク管理機能', type: :system do
 
     context '詳細画面から削除したとき' do
       it 'タスクが正常に削除される' do
-        # 「タスク「削除用タスク」を削除しました。」というメッセージがあることを確認する
-        expect(page).to have_selector '.alert-success', text: '削除用タスク'
+        expect(page).not_to have_text '削除用タスク'
       end
     end
   end
