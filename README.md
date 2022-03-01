@@ -5,9 +5,9 @@
 - [現場で使える Ruby on Rails 5速習実践ガイド \| マイナビブックス](https://book.mynavi.jp/ec/products/detail/id=93905)
 - [FJORD BOOT CAMP（フィヨルドブートキャンプ）](https://bootcamp.fjord.jp/)
 
-現場Rails輪読会では、RubyとRails、bundlerのバージョンを本に合わせて以下のようにしています。
+現場Rails輪読会では、RubyとRails、bundlerのバージョンを以下のようにしています。
 
-- Ruby：2.5.1
+- Ruby：2.7.5
 - Rails：5.2.1
 - Bundler：1.17.3
 - node 12系
@@ -22,8 +22,8 @@
 - `nvm install v12.22.10`を実行
 - `nvm use v12.22.10`を実行
 ### Rubyのインストール
-- ターミナルで`rbenv install 2.5.1`を実行しRuby 2.5.1をインストール
-- 現場Rails輪読会用のディレクトリを作成して、ターミナルで作成したディレクトリ内に移動し`rbenv local 2.5.1`を実行
+- ターミナルで`rbenv install 2.7.5`を実行しRuby 2.7.5をインストール
+- 現場Rails輪読会用のディレクトリを作成して、ターミナルで作成したディレクトリ内に移動し`rbenv local 2.7.5`を実行
 
 ### Bundlerのインストール
 - `gem install bundler -v '1.17.3'`を実行してbundler 1.17.3 をインストール
@@ -44,9 +44,9 @@
 もしrails5.2.1をインストールした際mimemagic関連のエラーが出た場合は1回rails5.2.1をアンインストールした後、rails5.2.5をインストールしてください。
 
 ### 確認
-`ruby -v`でrubyのバージョンが2.5.1なのか確認する
+`ruby -v`でrubyのバージョンが2.7.5なのか確認する
 
-例：ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-darwin20]
+例：ruby 2.7.5p203 (2021-11-24 revision f69aeb8314) [x86_64-darwin21]
 
 `bundler -v`でbundlerのバージョンが1.17.3であることを確認する
 
