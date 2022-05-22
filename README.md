@@ -8,7 +8,7 @@
 現場Rails輪読会では、RubyとRails、bundlerのバージョンを以下のようにしています。
 
 - Ruby：2.7.5
-- Rails：5.2.1
+- Rails： 6.0.4.6
 - Bundler：1.17.3
 - node 12系
 
